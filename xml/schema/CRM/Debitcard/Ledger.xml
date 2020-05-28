@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+
+<table>
+  <base>CRM/Debitcard</base>
+  <class>Ledger</class>
+  <name>civicrm_mstk_debitcard_ledger</name>
+  <add>4.4</add>
+  <log>true</log>
+
+  <field>
+    <name>id</name>
+    <type>int unsigned</type>
+    <required>true</required>
+    <comment>Unique Ledger ID</comment>
+    <add>4.4</add>
+  </field>
+  <primaryKey>
+    <name>id</name>
+    <autoincrement>true</autoincrement>
+  </primaryKey>
+
+  <field>
+    <name>date</name>
+    <type>date</type>
+    <required>true</required>
+    <comment>Ledger date stamp</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>datetime</name>
+    <type>datetime</type>
+    <required>true</required>
+    <comment>Ledger time stamp</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>contact_id</name>
+    <type>int unsigned</type>
+    <default>null</default>
+    <comment>FK to Contact</comment>
+    <add>4.4</add>
+  </field>
+  <foreignKey>
+    <name>contact_id</name>
+    <table>civicrm_contact</table>
+    <key>id</key>
+    <add>4.4</add>
+    <onDelete>SET NULL</onDelete>
+  </foreignKey>
+
+  <field>
+    <name>machine_id</name>
+    <type>int unsigned</type>
+    <default>0</default>
+    <comment>Machine serial, maps to permissions in custom data</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>is_debit</name>
+    <type>boolean</type>
+    <required>true</required>
+    <comment>Debit or Credit, used to determine operator</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>contribution_id</name>
+    <type>int unsigned</type>
+    <default>null</default>
+    <comment>FK to Contribution</comment>
+    <add>4.4</add>
+  </field>
+  <foreignKey>
+    <name>contribution_id</name>
+    <table>civicrm_contribution</table>
+    <key>id</key>
+    <add>4.4</add>
+    <onDelete>SET NULL</onDelete>
+  </foreignKey>
+
+  <field>
+    <name>job_time</name>
+    <type>int unsigned</type>
+    <required>true</required>
+    <default>0</default>
+    <comment>Job time in seconds</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>rate</name>
+    <type>int unsigned</type>
+    <default>0</default>
+    <comment>Rate in cents</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>amount</name>
+    <type>int</type>
+    <comment>Amount in cents</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>member_store</name>
+    <type>int unsigned</type>
+    <comment>Container for recurring, non-accruing member credits in cents, consumed first by client</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>pocket_store</name>
+    <type>int</type>
+    <comment>Container for out-of-pocket purchased credit in cents, consumed last by client</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>prev_ledger_item</name>
+    <type>int unsigned</type>
+    <comment>Previous ledger id of contact, used for auditing</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>prev_member_store</name>
+    <type>int unsigned</type>
+    <comment>Previous amount used for auditing</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>prev_pocket_store</name>
+    <type>int</type>
+    <comment>Previous amount used for auditing</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>is_test</name>
+    <type>boolean</type>
+    <required>true</required>
+    <comment>Used for test mode</comment>
+    <add>4.4</add>
+  </field>
+
+  <field>
+    <name>notes</name>
+    <type>varchar</type>
+    <length>255</length>
+    <comment>Used for documentation</comment>
+    <add>4.4</add>
+  </field>
+</table>
