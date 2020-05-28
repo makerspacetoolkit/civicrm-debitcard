@@ -2,7 +2,7 @@
 
 // Create a contribution page used to buy credits in the system and then
 // SET THIS VARIABLE TO THE ID NUMBER OF THAT PAGE:
-$GLOBALS['credit_contribution_page_id'] = 4;
+$GLOBALS['credit_contribution_page_id'] = 9999;
 
 require_once 'debitcard.civix.php';
 
